@@ -10,6 +10,8 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 17;
     public static final String DATABASE_NAME = "GeTaxi.db";
+    private static GeTaxiDBHelper mInstance = null;
+    private static Context mCtx = null;
 
     public static final String SQL_DELETE_ENTRIES_MOTORISTA =
             "DROP TABLE IF EXISTS " + MotoristaRegisterEntry.TABLE_NAME;
@@ -38,7 +40,7 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
     private static final String BLOP_TYPE = " BLOB";
     private static final String REAL_TYPE = " REAL";
     private static final String DATE_TYPE = " DATE";
-    private static final String PRYMARY_KEY = " PRYMARY KEY";
+    private static final String PRYMARY_KEY = " PRIMARY KEY";
     private static final String FOREIGN_KEY = " FOREIGN KEY";
     private static final String REFERENCES = " REFERENCES";
     private static final String AUTOINCREMENT = " AUTOINCREMENT";
@@ -64,6 +66,7 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
                     VeiculoRegisterEntry.COLUMN_NAME_ANO + INT_TYPE + NOT_NULL + COMMA_SEP +
                     VeiculoRegisterEntry.COLUMN_NAME_MARCA + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     VeiculoRegisterEntry.COLUMN_NAME_PLACA + TEXT_TYPE + NOT_NULL + COMMA_SEP +
+                    VeiculoRegisterEntry.COLUMN_NAME_PASSAGEIROS + INT_TYPE + COMMA_SEP +
                     VeiculoRegisterEntry.COLUMN_NAME_ID_MOTORISTA + INT_TYPE + COMMA_SEP +
                     FOREIGN_KEY + " (" + VeiculoRegisterEntry.COLUMN_NAME_ID_MOTORISTA + " )" + REFERENCES +
                     " " + MotoristaRegisterEntry.TABLE_NAME + " ( " + MotoristaRegisterEntry.COLUMN_NAME_ID + " )" +
@@ -128,8 +131,22 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
 
 
 
-    public GeTaxiDBHelper (Context context) {
+    private GeTaxiDBHelper (Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.mCtx = context;
+    }
+
+    public static GeTaxiDBHelper getInstance(Context ctx) {
+        /**
+         * use the application context as suggested by CommonsWare.
+         * this will ensure that you dont accidentally leak an Activitys
+         * context (see this article for more information:
+         * http://android-developers.blogspot.nl/2009/01/avoiding-memory-leaks.html)
+         */
+        if (mInstance == null) {
+            mInstance = new GeTaxiDBHelper(ctx.getApplicationContext());
+        }
+        return mInstance;
     }
 
 

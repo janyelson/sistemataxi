@@ -10,13 +10,13 @@ public class GeTaxiDB {
     private GeTaxiDBHelper geTaxiDBHelper;
 
     public GeTaxiDB(Context context) {
-        geTaxiDBHelper = new GeTaxiDBHelper(context);
+        geTaxiDBHelper = GeTaxiDBHelper.getInstance(context);
     }
 
     public void insert(ContentValues values, String tabela) {
         SQLiteDatabase db = geTaxiDBHelper.getWritableDatabase();
         long result = db.insert(tabela, null, values);
-        db.close();
+        //db.close();
     }
 
     public void update(ContentValues values, String tabela, String id) {
@@ -100,5 +100,17 @@ public class GeTaxiDB {
         }
         db.close();
         return values;
+    }
+
+    public Cursor getAllMotorista() {
+        SQLiteDatabase db = geTaxiDBHelper.getReadableDatabase();
+        String sql = "SELECT * FROM motorista INNER JOIN veiculo ON motorista._id = veiculo.id_motorista";
+        Cursor c = db.rawQuery( sql, null);
+        //db.close();
+        return c;
+    }
+
+    public  void close() {
+        //db.close();
     }
 }

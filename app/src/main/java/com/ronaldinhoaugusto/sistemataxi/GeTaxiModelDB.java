@@ -13,7 +13,7 @@ public class GeTaxiModelDB {
     public static abstract class MotoristaRegisterEntry implements BaseColumns {
 
         public static final String TABLE_NAME = "motorista";
-        public static final String COLUMN_NAME_ID = "id";
+        public static final String COLUMN_NAME_ID = "_id";
         public static final String COLUMN_NAME_NAME = "nome";
         public static final String COLUMN_NAME_CNH = "cnh";
         public static final String COLUMN_NAME_CPF = "cpf";
@@ -32,6 +32,7 @@ public class GeTaxiModelDB {
         public static final String COLUMN_NAME_ANO = "ano";
         public static final String COLUMN_NAME_MARCA = "marca";
         public static final String COLUMN_NAME_PLACA = "placa";
+        public static final String COLUMN_NAME_PASSAGEIROS = "passageiros";
         public static final String COLUMN_NAME_ID_MOTORISTA = "id_motorista";
 
     }

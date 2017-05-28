@@ -1,15 +1,22 @@
 package com.ronaldinhoaugusto.sistemataxi;
 
 import android.content.ContentValues;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.*;
-import android.view.*;
+import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+
+import java.util.Calendar;
 
 public class ActCadastroMotorista extends AppCompatActivity implements View.OnClickListener
 {
-    private EditText lblTextName, lblTextCNH, lblTextCPF, lblTextDataAdmissao, lblTextDataNasc, lblTextTelefone;
+    private EditText lblTextId, lblTextName, lblTextCNH, lblTextCPF, lblTextTelefone;
+    private EditText lblTextAno, lblTextMarca, lblTextPlaca, lblTextPassageiros;
+    private DatePicker lblTextDataAdmissao, lblTextDataNasc;
+    private Calendar DateAdmissao, DateNasc;
     private Button btnCadastrarMot;
     private GeTaxiDB bd;
 
@@ -21,12 +28,19 @@ public class ActCadastroMotorista extends AppCompatActivity implements View.OnCl
 
         bd = new GeTaxiDB(ActCadastroMotorista.this);
 
+        lblTextId = (EditText)findViewById(R.id.lblTextId);
         lblTextName = (EditText)findViewById(R.id.lblTextName);
         lblTextCNH = (EditText)findViewById(R.id.lblTextCNH);
         lblTextCPF = (EditText)findViewById(R.id.lblTextCPF);
-        lblTextDataAdmissao = (EditText)findViewById(R.id.lblTextDataAdmissao);
-        lblTextDataNasc = (EditText)findViewById(R.id.lblTextDataNasc);
+        lblTextDataAdmissao = (DatePicker)findViewById(R.id.lblTextDataAdmissao);
+        lblTextDataNasc = (DatePicker)findViewById(R.id.lblTextDataNasc);
         lblTextTelefone = (EditText)findViewById(R.id.lblTextTelefone);
+
+        lblTextAno = (EditText)findViewById(R.id.lblTextAno);
+        lblTextMarca = (EditText)findViewById(R.id.lblTextMarca);
+        lblTextPlaca = (EditText)findViewById(R.id.lblTextPlaca);
+        lblTextPassageiros = (EditText)findViewById(R.id.lblTextPassageiros);
+
         btnCadastrarMot = (Button)findViewById(R.id.btnCadastrarMot);
 
         btnCadastrarMot.setOnClickListener(this);
@@ -43,14 +57,36 @@ public class ActCadastroMotorista extends AppCompatActivity implements View.OnCl
 
     private void register() {
         ContentValues values = new ContentValues();
+        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_ID, lblTextId.getText().toString());
         values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_NAME, lblTextName.getText().toString());
         values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CNH, lblTextCNH.getText().toString());
         values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CPF, lblTextCPF.getText().toString());
-        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_DATE_ADMISSION, lblTextDataAdmissao.getText().toString());
-        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_DATE_NASCIMENTO, lblTextDataNasc.getText().toString());
+
+        DateAdmissao = Calendar.getInstance();
+        DateAdmissao.set(Calendar.DAY_OF_MONTH, lblTextDataAdmissao.getDayOfMonth());
+        DateAdmissao.set(Calendar.MONTH, lblTextDataAdmissao.getMonth());
+        DateAdmissao.set(Calendar.YEAR, lblTextDataAdmissao.getYear());
+
+        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_DATE_ADMISSION, "" + DateAdmissao.getTimeInMillis());
+
+        DateNasc = Calendar.getInstance();
+        DateNasc.set(Calendar.DAY_OF_MONTH, lblTextDataNasc.getDayOfMonth());
+        DateNasc.set(Calendar.MONTH, lblTextDataNasc.getMonth());
+        DateNasc.set(Calendar.YEAR, lblTextDataNasc.getYear());
+
+        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_DATE_NASCIMENTO, "" + DateAdmissao.getTimeInMillis());
         values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_TELEFONE, lblTextTelefone.getText().toString());
 
         bd.insert(values, GeTaxiModelDB.MotoristaRegisterEntry.TABLE_NAME);
 
+        values = new ContentValues();
+
+        values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ANO, lblTextAno.getText().toString());
+        values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_MARCA, lblTextMarca.getText().toString());
+        values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PLACA, lblTextPlaca.getText().toString());
+        values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PASSAGEIROS, lblTextPassageiros.getText().toString());
+        values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ID_MOTORISTA, lblTextId.getText().toString());
+
+        bd.insert(values, GeTaxiModelDB.VeiculoRegisterEntry.TABLE_NAME);
     }
 }

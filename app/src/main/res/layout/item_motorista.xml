@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_motorista"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView android:id="@+id/textMotorista"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:text="Motorista"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textIdMotorista"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textNomeMotorista"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textCNH"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textCPF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textDataAdmissao"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textDataNasc"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textTelefone"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textVeiculo"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:text="Veiculo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textAno"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textMarca"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textPlaca"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textPassageiros"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

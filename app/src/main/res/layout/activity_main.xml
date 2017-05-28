@@ -7,11 +7,23 @@
     android:layout_height="match_parent"
     tools:context="com.ronaldinhoaugusto.sistemataxi.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="1">
+
+        <Button
+            android:id="@+id/btnCadastrarCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar Cliente"
+            android:layout_below="@+id/btnCadastrarMot"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/btnConsultarMot"
+            android:layout_toStartOf="@+id/btnConsultarMot"
+            android:onClick="cadastroCliente"/>
 
         <TextView
             android:id="@+id/txtTitle"
@@ -27,42 +39,120 @@
         <ImageView
             android:id="@+id/imgBGTaxi"
             android:layout_width="wrap_content"
-            android:layout_height="269dp"
+            android:layout_height="256dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtTitle"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/icontaxi" />
 
         <Button
             android:id="@+id/btnCadastrarMot"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cadastrar Motorista"
             android:textAlignment="center"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:layout_below="@+id/imgBGTaxi"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <Button
             android:id="@+id/btnConsultarMot"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.14"
-            android:text="Consultar Motorista"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/imgBGTaxi"
+            android:layout_toRightOf="@+id/btnCadastrarMot"
+            android:text="Consult. Motorista"
             android:textAlignment="center"
             android:textStyle="italic" />
 
         <Button
             android:id="@+id/btnCadastrarNovaCorr"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastrar Nova Corrida"
+            android:text="Cadastrar Corrida"
             android:textAlignment="center"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:layout_below="@+id/btnCadastrarAtendente"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/btnConsultarCorr"
+            android:layout_toStartOf="@+id/btnConsultarCorr" />
 
         <Button
             android:id="@+id/btnConsultarCorr"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btnConsultarMot"
+            android:layout_alignRight="@+id/btnConsultarMot"
+            android:layout_alignTop="@+id/btnCadastrarNovaCorr"
+            android:layout_toRightOf="@+id/btnCadastrarMot"
             android:text="Consultar Corrida"
             android:textAlignment="center"
             android:textStyle="italic" />
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/btnConsultarCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cosultar Cliente"
+            android:onClick="consultarCliente"
+            android:layout_below="@+id/btnConsultarMot"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/btnCadastrarCliente"
+            android:layout_toEndOf="@+id/btnCadastrarCliente" />
+
+        <Button
+            android:id="@+id/btnCadastrarAtendente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cadast. Atendente"
+            android:layout_alignBaseline="@+id/btnConsultarAtendente"
+            android:layout_alignBottom="@+id/btnConsultarAtendente"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/btnConsultarCliente"
+            android:layout_toStartOf="@+id/btnConsultarCliente"
+            android:onClick="cadastroAtendente"/>
+
+        <Button
+            android:id="@+id/btnConsultarAtendente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btnConsultarCliente"
+            android:layout_alignLeft="@+id/btnConsultarCliente"
+            android:layout_alignRight="@+id/btnConsultarCliente"
+            android:layout_alignStart="@+id/btnConsultarCliente"
+            android:layout_below="@+id/btnCadastrarCliente"
+            android:text="Consult. Atendente"
+            android:onClick="consultarAtendente"/>
+
+        <Button
+            android:id="@+id/btnSolicitaTaxi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solicita Taxi"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/btnConsultarCorr"
+            android:layout_toStartOf="@+id/btnConsultarCorr"
+            android:onClick="consultarSolicitacoes"/>
+
+        <Button
+            android:id="@+id/btnRegistraChamada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/btnCadastrarNovaCorr"
+            android:text="Registra Chamada"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="consultarRegistrosChamadas"/>
+
+    </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

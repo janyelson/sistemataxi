@@ -1,22 +1,23 @@
 package com.ronaldinhoaugusto.sistemataxi;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.app.Activity;
-import android.widget.*;
 import android.view.View;
-import android.content.*;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
-    private Button btnCadastrarMot, btnConsultarMot, btnCadastrarNovaCorr, btnConsultarCorr;
+    private GeTaxiDB bd;
+    private Button btnCadastrarMot, btnConsultarMot;
+    private Button btnCadastrarCliente, btnConsultarCliente;
+    private Button btnCadastrarAtendente, btnConsultarAtendente;
+    private Button btnCadastrarNovaCorr, btnConsultarCorr;
+    private Button btnSolicitaTaxi, btnRegistraChamada;
+
     //private String message = "Processo executado com êxito!";
 
     @Override
@@ -26,22 +27,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnCadastrarMot = (Button) findViewById(R.id.btnCadastrarMot);
         btnConsultarMot = (Button) findViewById(R.id.btnConsultarMot);
+        btnCadastrarCliente = (Button) findViewById(R.id.btnCadastrarCliente);
+        btnConsultarCliente = (Button) findViewById(R.id.btnConsultarCliente);
+        btnCadastrarAtendente = (Button) findViewById(R.id.btnCadastrarAtendente);
+        btnConsultarAtendente = (Button) findViewById(R.id.btnConsultarAtendente);
         btnCadastrarNovaCorr = (Button) findViewById(R.id.btnCadastrarNovaCorr);
         btnConsultarCorr = (Button) findViewById(R.id.btnConsultarCorr);
-
-        //btnCadastrarMot.setOnClickListener(this);
-
+        btnSolicitaTaxi = (Button) findViewById(R.id.btnSolicitaTaxi);
+        btnRegistraChamada = (Button) findViewById(R.id.btnRegistraChamada);
+        bd = new GeTaxiDB(MainActivity.this);
         btnCadastrarMot.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
                 cadastroMotorista(v);
-                /*
-                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
-                dlg.setMessage(message);
-                dlg.setNeutralButton("OK",null);
-                dlg.show();
-                */
             }
         });
 
@@ -50,12 +49,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v)
             {
                 consultarMotorista(v);
-                /*
-                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
-                dlg.setMessage("Consulta processada com sucesso!");
-                dlg.setNeutralButton("OK",null);
-                dlg.show();
-                */
             }
         });
         btnCadastrarNovaCorr.setOnClickListener(new View.OnClickListener()
@@ -63,12 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v)
             {
                 cadastroCorrida(v);
-                /*
-                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
-                dlg.setMessage("Viagem cadastada com sucesso!");
-                dlg.setNeutralButton("OK",null);
-                dlg.show();
-                */
             }
         });
         btnConsultarCorr.setOnClickListener(new View.OnClickListener()
@@ -97,6 +84,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent it = new Intent(this, ActConsultaMotorista.class);
         startActivity(it);
     }
+    public void cadastroCliente(View v)
+    {
+        Intent it = new Intent(this, ActCadastroMotorista.class);
+        startActivity(it);
+    }
+    public void consultarCliente(View v)
+    {
+        Intent it = new Intent(this, ActConsultaMotorista.class);
+        startActivity(it);
+    }
+    public void cadastroAtendente(View v)
+    {
+        Intent it = new Intent(this, ActCadastroMotorista.class);
+        startActivity(it);
+    }
+    public void consultarAtendente(View v)
+    {
+        Intent it = new Intent(this, ActConsultaMotorista.class);
+        startActivity(it);
+    }
     public void cadastroCorrida(View v)
     {
         Intent it = new Intent(this, ActCadastroCorrida.class);
@@ -107,15 +114,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent it = new Intent(this, ActCadastroMotorista.class);
         startActivity(it);
     }
-
-    public void onClick(View v)
+    public void consultarSolicitacoes(View v)
     {
-        /*
         Intent it = new Intent(this, ActCadastroMotorista.class);
         startActivity(it);
-        */
     }
-
+    public void consultarRegistrosChamadas(View v)
+    {
+        Intent it = new Intent(this, ActConsultaMotorista.class);
+        startActivity(it);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -138,5 +146,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         */
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
