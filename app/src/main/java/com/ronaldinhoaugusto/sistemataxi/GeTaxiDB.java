@@ -66,7 +66,6 @@ public class GeTaxiDB {
                 if (c.moveToFirst()) {
                     values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_ID, c.getInt(0));
                     values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_VALUE, c.getDouble(1));
-                    values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_KM, c.getDouble(2));
                     values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM_LATITUDE, c.getDouble(3));
                     values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM_LONGITUDE, c.getDouble(4));
                     values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_DATE_ORIGEM, c.getLong(5));
@@ -110,7 +109,18 @@ public class GeTaxiDB {
         return c;
     }
 
-    public  void close() {
-        //db.close();
+    public Cursor getAll(String tabela) {
+        SQLiteDatabase db = geTaxiDBHelper.getReadableDatabase();
+        Cursor c = db.query(
+                tabela,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+
+        return c;
     }
 }

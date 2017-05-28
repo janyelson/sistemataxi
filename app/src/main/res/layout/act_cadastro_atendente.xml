@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ronaldinhoaugusto.sistemataxi.ActCadastroCorrida">
+    tools:context="com.ronaldinhoaugusto.sistemataxi.ActCadastroAtendente">
 
     <ScrollView
-        android:id="@+id/scrolViewCorrida"
+        android:id="@+id/scrolViewAtendente"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
@@ -19,34 +19,34 @@
             android:weightSum="1">
 
             <TextView
-                android:id="@+id/textViewChamada"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:text="Cadastrar Chamada"
+                android:text="Cadastrar Atendente"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_orange_light"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/txtProtocolo"
+                android:id="@+id/txtId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:text="Protocolo:"
+                android:text="Id:"
                 android:textColor="#de000000"
                 android:textSize="16sp"
                 android:visibility="visible" />
 
             <EditText
-                android:id="@+id/lblTextProtocolo"
+                android:id="@+id/lblTextId"
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="1dp"
                 android:background="#FFFFFF"
                 android:elevation="2dp"
                 android:ems="10"
-                android:hint="Digite o protocolo!"
+                android:hint="Digite o id!"
                 android:inputType="textPersonName"
                 android:padding="4dp"
                 android:textColorHint="#39000000"
@@ -54,24 +54,24 @@
                 android:visibility="visible" />
 
             <TextView
-                android:id="@+id/txtIdMotorista"
+                android:id="@+id/txtNome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:text="Motorista(ID):"
+                android:text="Nome:"
                 android:textColor="#de000000"
                 android:textSize="16sp"
                 android:visibility="visible" />
 
             <EditText
-                android:id="@+id/lblTextIdMotorista"
+                android:id="@+id/lblTextName"
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="1dp"
                 android:background="#FFFFFF"
                 android:elevation="2dp"
                 android:ems="10"
-                android:hint="Digite o ID do Motorista"
+                android:hint="Digite seu nome!"
                 android:inputType="textPersonName"
                 android:padding="4dp"
                 android:textColorHint="#39000000"
@@ -79,24 +79,24 @@
                 android:visibility="visible" />
 
             <TextView
-                android:id="@+id/txtIdAtendente"
+                android:id="@+id/txtSalario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:text="Atendente(ID):"
+                android:text="Salario:"
                 android:textColor="#de000000"
                 android:textSize="16sp"
                 android:visibility="visible" />
 
             <EditText
-                android:id="@+id/lblTextIdAtendente"
+                android:id="@+id/lblTextSalario"
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="1dp"
                 android:background="#FFFFFF"
                 android:elevation="2dp"
                 android:ems="10"
-                android:hint="Digite o ID do Atendente"
+                android:hint="Digite o Salario!"
                 android:inputType="textPersonName"
                 android:padding="4dp"
                 android:textColorHint="#39000000"
@@ -104,24 +104,24 @@
                 android:visibility="visible" />
 
             <TextView
-                android:id="@+id/txtValor"
+                android:id="@+id/txtCPF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:text="Valor:"
+                android:text="CPF:"
                 android:textColor="#de000000"
                 android:textSize="16sp"
                 android:visibility="visible" />
 
             <EditText
-                android:id="@+id/lblTextValor"
+                android:id="@+id/lblTextCPF"
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="1dp"
                 android:background="#FFFFFF"
                 android:elevation="2dp"
                 android:ems="10"
-                android:hint="Digite o Valor"
+                android:hint="Digite seu CPF!"
                 android:inputType="textPersonName"
                 android:padding="4dp"
                 android:textColorHint="#39000000"
@@ -130,24 +130,24 @@
 
             <TextView
                 android:layout_marginTop="15dp"
-                android:id="@+id/txtPassageiro"
+                android:id="@+id/txtTelefone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:text="Passageiro(ID):"
+                android:text="Telefone:"
                 android:textColor="#de000000"
                 android:textSize="16sp"
                 android:visibility="visible" />
 
             <EditText
-                android:id="@+id/lblTextPassageiro"
+                android:id="@+id/lblTextTelefone"
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
                 android:layout_marginTop="1dp"
                 android:background="#FFFFFF"
                 android:elevation="2dp"
                 android:ems="10"
-                android:hint="Digite do passageiro!"
+                android:hint="Digite seu telefone!"
                 android:inputType="textPersonName"
                 android:padding="4dp"
                 android:textColorHint="#39000000"
@@ -155,7 +155,7 @@
                 android:visibility="visible" />
 
             <Button
-                android:id="@+id/btnCadastrarChamada"
+                android:id="@+id/btnCadastrarAtendente"
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
                 android:layout_gravity="center"
@@ -168,4 +168,3 @@
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
-

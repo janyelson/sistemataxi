@@ -40,9 +40,8 @@ public class GeTaxiModelDB {
     public static abstract class ChamadaRegisterEntry implements BaseColumns {
 
         public static final String TABLE_NAME = "chamada";
-        public static final String COLUMN_NAME_ID = "id";
+        public static final String COLUMN_NAME_ID = "_id";
         public static final String COLUMN_NAME_VALUE = "valor";
-        public static final String COLUMN_NAME_KM = "quilometragem";
         public static final String COLUMN_NAME_LOCAL_ORIGEM_LATITUDE = "origem_latitude";
         public static final String COLUMN_NAME_LOCAL_ORIGEM_LONGITUDE = "origem_dlongitude";
         public static final String COLUMN_NAME_DATE_ORIGEM = "origem_data";
@@ -54,7 +53,7 @@ public class GeTaxiModelDB {
     public static abstract class AtendenteRegisterEntry implements BaseColumns {
 
         public static final String TABLE_NAME = "atendente";
-        public static final String COLUMN_NAME_ID = "id";
+        public static final String COLUMN_NAME_ID = "_id";
         public static final String COLUMN_NAME_NAME = "nome";
         public static final String COLUMN_NAME_SALARIO = "salario";
         public static final String COLUMN_NAME_CPF = "cpf";
@@ -67,7 +66,7 @@ public class GeTaxiModelDB {
     public static abstract class UsuarioRegisterEntry implements BaseColumns {
 
         public static final String TABLE_NAME = "usuario";
-        public static final String COLUMN_NAME_ID = "id";
+        public static final String COLUMN_NAME_ID = "_id";
         public static final String COLUMN_NAME_NAME = "nome";
         public static final String COLUMN_NAME_CPF = "cpf";
         public static final String COLUMN_NAME_LATITUDE = "latitude";

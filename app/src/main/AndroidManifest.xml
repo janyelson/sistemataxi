@@ -24,7 +24,7 @@
         </activity>
         <activity android:name=".ActCadastroMotorista" />
         <activity android:name=".ActConsultaMotorista" />
-        <activity android:name=".ActCadastroCorrida"></activity>
+        <activity android:name=".ActCadastroCorrida" />
     </application>
 
 </manifest>

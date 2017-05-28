@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.17"
-        android:text="Consultar Motorista"
+        android:text="Consultar Cliente"
         android:textAlignment="center"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="24sp"
@@ -44,12 +44,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="5dp">
-    <ListView
-        android:id="@+id/listMotorista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-    </ListView>
+        <ListView
+            android:id="@+id/listCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+        </ListView>
     </ScrollView>
 
 </LinearLayout>

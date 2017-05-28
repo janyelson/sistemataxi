@@ -2,7 +2,6 @@ package com.ronaldinhoaugusto.sistemataxi;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnSolicitaTaxi = (Button) findViewById(R.id.btnSolicitaTaxi);
         btnRegistraChamada = (Button) findViewById(R.id.btnRegistraChamada);
         bd = new GeTaxiDB(MainActivity.this);
+
         btnCadastrarMot.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
@@ -43,12 +43,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 cadastroMotorista(v);
             }
         });
-
         btnConsultarMot.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
             {
                 consultarMotorista(v);
+            }
+        });
+        btnCadastrarCliente.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                cadastroCliente(v);
+            }
+        });
+        btnConsultarCliente.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                consultarCliente(v);
+            }
+        });
+        btnCadastrarAtendente.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                cadastroAtendente(v);
+            }
+        });
+
+        btnConsultarAtendente.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                consultarAtendente(v);
             }
         });
         btnCadastrarNovaCorr.setOnClickListener(new View.OnClickListener()
@@ -62,10 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             public void onClick(View v)
             {
-                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
-                dlg.setMessage("Consultando corridas...");
-                dlg.setNeutralButton("OK",null);
-                dlg.show();
+                consultarCorrida(v);
             }
         });
         /*
@@ -86,22 +111,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void cadastroCliente(View v)
     {
-        Intent it = new Intent(this, ActCadastroMotorista.class);
+        Intent it = new Intent(this, ActCadastroCliente.class);
         startActivity(it);
     }
     public void consultarCliente(View v)
     {
-        Intent it = new Intent(this, ActConsultaMotorista.class);
+        Intent it = new Intent(this, ActConsultaCliente.class);
         startActivity(it);
     }
     public void cadastroAtendente(View v)
     {
-        Intent it = new Intent(this, ActCadastroMotorista.class);
+        Intent it = new Intent(this, ActCadastroAtendente.class);
         startActivity(it);
     }
     public void consultarAtendente(View v)
     {
-        Intent it = new Intent(this, ActConsultaMotorista.class);
+        Intent it = new Intent(this, ActConsultaAtendente.class);
         startActivity(it);
     }
     public void cadastroCorrida(View v)
@@ -111,18 +136,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     public void consultarCorrida(View v)
     {
-        Intent it = new Intent(this, ActCadastroMotorista.class);
+        Intent it = new Intent(this, ActConsultaCorrida.class);
         startActivity(it);
     }
     public void consultarSolicitacoes(View v)
     {
-        Intent it = new Intent(this, ActCadastroMotorista.class);
-        startActivity(it);
+        //Intent it = new Intent(this, ActCadastroMotorista.class);
+        //startActivity(it);
     }
     public void consultarRegistrosChamadas(View v)
     {
-        Intent it = new Intent(this, ActConsultaMotorista.class);
-        startActivity(it);
+        //Intent it = new Intent(this, ActConsultaMotorista.class);
+        //startActivity(it);
     }
 
     @Override
