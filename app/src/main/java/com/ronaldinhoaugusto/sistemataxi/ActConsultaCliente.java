@@ -52,7 +52,7 @@ public class ActConsultaCliente extends ListActivity implements View.OnClickList
                 R.id.textTelefone,
         };
 
-        Cursor mCursor = db.getAll(GeTaxiModelDB.AtendenteRegisterEntry.TABLE_NAME);
+        Cursor mCursor = db.getAll(GeTaxiModelDB.UsuarioRegisterEntry.TABLE_NAME);
 
         ListAdapter adapter = new SimpleCursorAdapter(
                 this,

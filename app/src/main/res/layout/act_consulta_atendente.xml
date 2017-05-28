@@ -45,7 +45,7 @@
         android:layout_height="match_parent"
         android:paddingBottom="5dp">
         <ListView
-            android:id="@+id/listAtendente"
+            android:id="@android:id/list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             >

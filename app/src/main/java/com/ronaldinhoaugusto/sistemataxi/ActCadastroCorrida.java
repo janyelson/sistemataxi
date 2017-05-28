@@ -21,7 +21,7 @@ public class ActCadastroCorrida extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_cadastro_atendente);
+        setContentView(R.layout.act_cadastro_corrida);
 
         bd = new GeTaxiDB(ActCadastroCorrida.this);
 
@@ -31,7 +31,7 @@ public class ActCadastroCorrida extends AppCompatActivity implements View.OnClic
         lblTextValor = (EditText)findViewById(R.id.lblTextValor);
         lblTextPassageiro = (EditText)findViewById(R.id.lblTextPassageiro);
 
-        btnCadastrarChamada = (Button)findViewById(R.id.btnCadastrarAtendente);
+        btnCadastrarChamada = (Button)findViewById(R.id.btnCadastrarChamada);
 
         btnCadastrarChamada.setOnClickListener(this);
     }

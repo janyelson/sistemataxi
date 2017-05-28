@@ -48,7 +48,7 @@ public class ActConsultaCorrida extends ListActivity implements View.OnClickList
                 R.id.textValor,
         };
 
-        Cursor mCursor = db.getAll(GeTaxiModelDB.AtendenteRegisterEntry.TABLE_NAME);
+        Cursor mCursor = db.getAll(GeTaxiModelDB.ChamadaRegisterEntry.TABLE_NAME);
 
         ListAdapter adapter = new SimpleCursorAdapter(
                 this,
