@@ -14,6 +14,7 @@ import android.widget.EditText;
 
 public class ActCadastroCorrida extends AppCompatActivity implements View.OnClickListener{
     private EditText lblTextProtocolo, lblTextIdMotorista, lblTextIdAtendente, lblTextValor, lblTextPassageiro;
+    private EditText lblTextLocalOrigem, lblTextLocalDestino;
     private Button btnCadastrarChamada;
     private GeTaxiDB bd;
 
@@ -30,6 +31,8 @@ public class ActCadastroCorrida extends AppCompatActivity implements View.OnClic
         lblTextIdAtendente = (EditText)findViewById(R.id.lblTextIdAtendente);
         lblTextValor = (EditText)findViewById(R.id.lblTextValor);
         lblTextPassageiro = (EditText)findViewById(R.id.lblTextPassageiro);
+        lblTextLocalOrigem = (EditText)findViewById(R.id.lblTextOrigem);
+        lblTextLocalDestino = (EditText)findViewById(R.id.lblTextDestino);
 
         btnCadastrarChamada = (Button)findViewById(R.id.btnCadastrarChamada);
 
@@ -49,6 +52,8 @@ public class ActCadastroCorrida extends AppCompatActivity implements View.OnClic
         ContentValues values = new ContentValues();
         values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_ID, lblTextProtocolo.getText().toString());
         values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_VALUE, lblTextValor.getText().toString());
+        values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM, lblTextLocalOrigem.getText().toString());
+        values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO, lblTextLocalDestino.getText().toString());
 
         bd.insert(values, GeTaxiModelDB.ChamadaRegisterEntry.TABLE_NAME);
         values = new ContentValues();

@@ -12,28 +12,16 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.17"
         android:text="Consultar Corrida"
+        android:layout_marginBottom="15dp"
         android:textAlignment="center"
         android:textColor="@android:color/holo_orange_light"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/txtName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Digite aqui o nome!"
-        android:textStyle="italic"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/lblTitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <Button
         android:id="@+id/btnPesquisar"
         android:layout_width="match_parent"
-        android:layout_height="78dp"
+        android:layout_height="50dp"
         android:text="Pesquisar"
         android:layout_below="@+id/txtName"
         android:layout_alignParentLeft="true"
@@ -43,7 +31,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="5dp">
+        android:paddingBottom="50dp">
         <ListView
             android:id="@android:id/list"
             android:layout_width="wrap_content"

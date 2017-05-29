@@ -154,6 +154,58 @@
                 android:textSize="16sp"
                 android:visibility="visible" />
 
+            <TextView
+                android:layout_marginTop="15dp"
+                android:id="@+id/txtOrigem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="Origem:"
+                android:textColor="#de000000"
+                android:textSize="16sp"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/lblTextOrigem"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="1dp"
+                android:background="#FFFFFF"
+                android:elevation="2dp"
+                android:ems="10"
+                android:hint="Digite o endereço da origem!"
+                android:inputType="textPersonName"
+                android:padding="4dp"
+                android:textColorHint="#39000000"
+                android:textSize="16sp"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:id="@+id/txtDestino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:text="Destino:"
+                android:textColor="#de000000"
+                android:textSize="16sp"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/lblTextDestino"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="1dp"
+                android:background="#FFFFFF"
+                android:elevation="2dp"
+                android:ems="10"
+                android:hint="Digite o endereço do destino!"
+                android:inputType="textPersonName"
+                android:padding="4dp"
+                android:textColorHint="#39000000"
+                android:textSize="16sp"
+                android:visibility="visible" />
+
             <Button
                 android:id="@+id/btnCadastrarChamada"
                 android:layout_width="fill_parent"

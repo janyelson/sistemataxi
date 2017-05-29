@@ -76,11 +76,9 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + ChamadaRegisterEntry.TABLE_NAME + " (" +
                     ChamadaRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + COMMA_SEP +
                     ChamadaRegisterEntry.COLUMN_NAME_VALUE + REAL_TYPE + NOT_NULL + COMMA_SEP +
-                    ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM_LATITUDE + REAL_TYPE + COMMA_SEP +
-                    ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM_LONGITUDE + REAL_TYPE + COMMA_SEP +
+                    ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM + TEXT_TYPE + COMMA_SEP +
                     ChamadaRegisterEntry.COLUMN_NAME_DATE_ORIGEM + INT_TYPE + COMMA_SEP +
-                    ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO_LATITUDE + REAL_TYPE + COMMA_SEP +
-                    ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO_LONGITUDE + REAL_TYPE + COMMA_SEP +
+                    ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO + TEXT_TYPE + COMMA_SEP +
                     ChamadaRegisterEntry.COLUMN_NAME_DATE_DESTINO + INT_TYPE +
                     " )";
 
@@ -100,8 +98,9 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
                     UsuarioRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + COMMA_SEP +
                     UsuarioRegisterEntry.COLUMN_NAME_NAME + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     UsuarioRegisterEntry.COLUMN_NAME_CPF + TEXT_TYPE + NOT_NULL + COMMA_SEP +
-                    UsuarioRegisterEntry.COLUMN_NAME_LATITUDE + REAL_TYPE + COMMA_SEP +
-                    UsuarioRegisterEntry.COLUMN_NAME_LONGITUDE + REAL_TYPE + COMMA_SEP +
+                    UsuarioRegisterEntry.COLUMN_NAME_RUA + TEXT_TYPE + COMMA_SEP +
+                    UsuarioRegisterEntry.COLUMN_NAME_CIDADE + TEXT_TYPE + COMMA_SEP +
+                    UsuarioRegisterEntry.COLUMN_NAME_ESTADO + TEXT_TYPE + COMMA_SEP +
                     UsuarioRegisterEntry.COLUMN_NAME_TELEFONE + TEXT_TYPE +
                     " )";
 

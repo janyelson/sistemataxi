@@ -42,10 +42,14 @@ public class ActConsultaCorrida extends ListActivity implements View.OnClickList
     {
         String[] ss = new String[] {
                 GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_ID,
-                GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_VALUE};
+                GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_VALUE,
+                GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM,
+                GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO};
         int[] ii = new int[] {
                 R.id.textProtocolo,
                 R.id.textValor,
+                R.id.textOrigem,
+                R.id.textDestino
         };
 
         Cursor mCursor = db.getAll(GeTaxiModelDB.ChamadaRegisterEntry.TABLE_NAME);

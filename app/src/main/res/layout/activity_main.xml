@@ -131,28 +131,5 @@
             android:text="Consult. Atendente"
             android:onClick="consultarAtendente"/>
 
-        <Button
-            android:id="@+id/btnSolicitaTaxi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Solicita Taxi"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/btnConsultarCorr"
-            android:layout_toStartOf="@+id/btnConsultarCorr"
-            android:onClick="consultarSolicitacoes"/>
-
-        <Button
-            android:id="@+id/btnRegistraChamada"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/btnCadastrarNovaCorr"
-            android:text="Registra Chamada"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:onClick="consultarRegistrosChamadas"/>
-
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

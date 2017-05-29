@@ -66,11 +66,11 @@ public class GeTaxiDB {
                 if (c.moveToFirst()) {
                     values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_ID, c.getInt(0));
                     values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_VALUE, c.getDouble(1));
-                    values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM_LATITUDE, c.getDouble(3));
-                    values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM_LONGITUDE, c.getDouble(4));
+                    //values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM_LATITUDE, c.getDouble(3));
+                    //values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM_LONGITUDE, c.getDouble(4));
                     values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_DATE_ORIGEM, c.getLong(5));
-                    values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO_LATITUDE, c.getDouble(6));
-                    values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO_LONGITUDE, c.getDouble(7));
+                    //values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO_LATITUDE, c.getDouble(6));
+                    //values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO_LONGITUDE, c.getDouble(7));
                     values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_DATE_DESTINO, c.getLong(8));
                 }
                 break;
@@ -90,8 +90,8 @@ public class GeTaxiDB {
                     values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_ID, c.getInt(0));
                     values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_NAME, c.getString(1));
                     values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_CPF, c.getString(2));
-                    values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_LONGITUDE, c.getDouble(3));
-                    values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_LATITUDE, c.getDouble(4));
+                    //values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_LONGITUDE, c.getDouble(3));
+                    //values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_LATITUDE, c.getDouble(4));
                     values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_TELEFONE, c.getLong(5));
                 }
                 break;

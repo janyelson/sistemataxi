@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnConsultarAtendente = (Button) findViewById(R.id.btnConsultarAtendente);
         btnCadastrarNovaCorr = (Button) findViewById(R.id.btnCadastrarNovaCorr);
         btnConsultarCorr = (Button) findViewById(R.id.btnConsultarCorr);
-        btnSolicitaTaxi = (Button) findViewById(R.id.btnSolicitaTaxi);
-        btnRegistraChamada = (Button) findViewById(R.id.btnRegistraChamada);
+        //btnSolicitaTaxi = (Button) findViewById(R.id.btnSolicitaTaxi);
+        //btnRegistraChamada = (Button) findViewById(R.id.btnRegistraChamada);
         bd = new GeTaxiDB(MainActivity.this);
 
         btnCadastrarMot.setOnClickListener(new View.OnClickListener()

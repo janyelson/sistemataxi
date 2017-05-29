@@ -42,14 +42,21 @@ public class ActConsultaCliente extends ListActivity implements View.OnClickList
     {
         String[] ss = new String[] {
                 GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_ID,
-                GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_NAME,
-                GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_CPF,
-                GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_TELEFONE};
+                GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_NAME,
+                GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_CPF,
+                GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_RUA,
+                GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_CIDADE,
+                GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_ESTADO,
+                GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_TELEFONE
+        };
         int[] ii = new int[] {
                 R.id.textIdCliente,
                 R.id.textNomeCliente,
                 R.id.textCPF,
-                R.id.textTelefone,
+                R.id.textRua,
+                R.id.textCidade,
+                R.id.textEstado,
+                R.id.textTelefone
         };
 
         Cursor mCursor = db.getAll(GeTaxiModelDB.UsuarioRegisterEntry.TABLE_NAME);

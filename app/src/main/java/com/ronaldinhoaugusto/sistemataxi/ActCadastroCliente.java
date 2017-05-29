@@ -14,6 +14,7 @@ import android.widget.EditText;
 
 public class ActCadastroCliente extends AppCompatActivity implements View.OnClickListener{
     private EditText lblTextId, lblTextName, lblTextCPF, lblTextTelefone;
+    private EditText lblTextRua, lblTextCidade, lblTextEstado;
     private Button btnCadastrarCliente;
     private GeTaxiDB bd;
 
@@ -29,6 +30,9 @@ public class ActCadastroCliente extends AppCompatActivity implements View.OnClic
         lblTextName = (EditText)findViewById(R.id.lblTextName);
         lblTextCPF = (EditText)findViewById(R.id.lblTextCPF);
         lblTextTelefone = (EditText)findViewById(R.id.lblTextTelefone);
+        lblTextRua = (EditText)findViewById(R.id.lblTextRua);
+        lblTextCidade = (EditText)findViewById(R.id.lblTextCidade);
+        lblTextEstado = (EditText)findViewById(R.id.lblTextEstado);
 
         btnCadastrarCliente= (Button)findViewById(R.id.btnCadastrarCliente);
 
@@ -50,6 +54,9 @@ public class ActCadastroCliente extends AppCompatActivity implements View.OnClic
         values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_NAME, lblTextName.getText().toString());
         values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_CPF, lblTextCPF.getText().toString());
         values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_TELEFONE, lblTextTelefone.getText().toString());
+        values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_RUA, lblTextRua.getText().toString());
+        values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_CIDADE, lblTextCidade.getText().toString());
+        values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_ESTADO, lblTextEstado.getText().toString());
 
         bd.insert(values, GeTaxiModelDB.UsuarioRegisterEntry.TABLE_NAME);
     }

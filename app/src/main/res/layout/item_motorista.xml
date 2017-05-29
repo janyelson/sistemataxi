@@ -13,9 +13,23 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
+    <TextView android:id="@+id/txtId"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Motorista(ID):"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
     <TextView android:id="@+id/textIdMotorista"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtNome"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Nome:"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
@@ -25,9 +39,23 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
+    <TextView android:id="@+id/txtCNH"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="CNH:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
     <TextView android:id="@+id/textCNH"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtCPF"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="CPF:"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
@@ -37,15 +65,36 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
+    <TextView android:id="@+id/txtAdmissao"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Data de Admissão:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
     <TextView android:id="@+id/textDataAdmissao"
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
+    <TextView android:id="@+id/txtNasc"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Data de Nascimento:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
     <TextView android:id="@+id/textDataNasc"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtTelefone"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Telefone:"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
@@ -63,9 +112,23 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
+    <TextView android:id="@+id/txtAno"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Ano:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
     <TextView android:id="@+id/textAno"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtMarca"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Marca:"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
@@ -75,9 +138,23 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
+    <TextView android:id="@+id/txtPlaca"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Placa:"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
     <TextView android:id="@+id/textPlaca"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtPassageiros"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Nº de Passageiros:"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
