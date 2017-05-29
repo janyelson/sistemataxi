@@ -4,6 +4,8 @@ package com.ronaldinhoaugusto.sistemataxi;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+
 import com.ronaldinhoaugusto.sistemataxi.GeTaxiModelDB.*;
 
 public class GeTaxiDBHelper extends SQLiteOpenHelper {
@@ -53,8 +55,8 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
                     MotoristaRegisterEntry.COLUMN_NAME_NAME + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_CNH + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_CPF + TEXT_TYPE + NOT_NULL + COMMA_SEP +
-                    MotoristaRegisterEntry.COLUMN_NAME_DATE_ADMISSION + INT_TYPE + COMMA_SEP +
-                    MotoristaRegisterEntry.COLUMN_NAME_DATE_NASCIMENTO + INT_TYPE + COMMA_SEP +
+                    MotoristaRegisterEntry.COLUMN_NAME_DATE_ADMISSION + TEXT_TYPE + COMMA_SEP +
+                    MotoristaRegisterEntry.COLUMN_NAME_DATE_NASCIMENTO + TEXT_TYPE + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_LATITUDE + REAL_TYPE + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_LONGITUDE + REAL_TYPE + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_TELEFONE + TEXT_TYPE +
@@ -169,5 +171,13 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_ENTRIES_SOLICITA);
         db.execSQL(SQL_DELETE_ENTRIES_REGISTRA);
         onCreate(db);
+    }
+
+    @Override
+    public void onConfigure(SQLiteDatabase db) {
+        super.onConfigure(db);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            db.setForeignKeyConstraintsEnabled(true);
+        }
     }
 }

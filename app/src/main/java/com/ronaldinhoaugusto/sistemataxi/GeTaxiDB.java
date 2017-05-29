@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 
 public class GeTaxiDB {
@@ -13,10 +14,30 @@ public class GeTaxiDB {
         geTaxiDBHelper = GeTaxiDBHelper.getInstance(context);
     }
 
-    public void insert(ContentValues values, String tabela) {
-        SQLiteDatabase db = geTaxiDBHelper.getWritableDatabase();
-        long result = db.insert(tabela, null, values);
+    public boolean insert(ContentValues values, String tabela) {
+
+        try {
+            SQLiteDatabase db = geTaxiDBHelper.getWritableDatabase();
+            long result = db.insertOrThrow(tabela, null, values);
+        }catch (Exception e) {
+            return false;
+        }
+
+        return true;
         //db.close();
+    }
+
+    public boolean insert(ContentValues motorista, ContentValues veiculo) {
+        try {
+            SQLiteDatabase db = geTaxiDBHelper.getWritableDatabase();
+            db.insertOrThrow(GeTaxiModelDB.MotoristaRegisterEntry.TABLE_NAME, null, motorista);
+            db.insertOrThrow(GeTaxiModelDB.VeiculoRegisterEntry.TABLE_NAME, null, veiculo);
+        }catch(Exception e) {
+            Log.e("Motorista:", "id errado");
+            return false;
+        }
+
+        return true;
     }
 
     public void update(ContentValues values, String tabela, String id) {

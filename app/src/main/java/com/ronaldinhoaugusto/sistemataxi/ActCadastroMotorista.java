@@ -56,37 +56,39 @@ public class ActCadastroMotorista extends AppCompatActivity implements View.OnCl
     }
 
     private void register() {
-        ContentValues values = new ContentValues();
-        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_ID, lblTextId.getText().toString());
-        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_NAME, lblTextName.getText().toString());
-        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CNH, lblTextCNH.getText().toString());
-        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CPF, lblTextCPF.getText().toString());
+        ContentValues values1 = new ContentValues();
+        ContentValues values2 = new ContentValues();
 
-        DateAdmissao = Calendar.getInstance();
-        DateAdmissao.set(Calendar.DAY_OF_MONTH, lblTextDataAdmissao.getDayOfMonth());
-        DateAdmissao.set(Calendar.MONTH, lblTextDataAdmissao.getMonth());
-        DateAdmissao.set(Calendar.YEAR, lblTextDataAdmissao.getYear());
+        values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_ID, lblTextId.getText().toString());
+        values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_NAME, lblTextName.getText().toString());
+        values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CNH, lblTextCNH.getText().toString());
+        values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CPF, lblTextCPF.getText().toString());
 
-        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_DATE_ADMISSION, "" + DateAdmissao.getTimeInMillis());
+        //DateAdmissao = Calendar.getInstance();
+        String data =  lblTextDataAdmissao.getDayOfMonth() + "/"+ lblTextDataAdmissao.getMonth() + "/"+ lblTextDataAdmissao.getYear();
+        //DateAdmissao.set(Calendar.DAY_OF_MONTH, lblTextDataAdmissao.getDayOfMonth());
+        //DateAdmissao.set(Calendar.MONTH, lblTextDataAdmissao.getMonth());
+        //DateAdmissao.set(Calendar.YEAR, lblTextDataAdmissao.getYear());
 
-        DateNasc = Calendar.getInstance();
-        DateNasc.set(Calendar.DAY_OF_MONTH, lblTextDataNasc.getDayOfMonth());
-        DateNasc.set(Calendar.MONTH, lblTextDataNasc.getMonth());
-        DateNasc.set(Calendar.YEAR, lblTextDataNasc.getYear());
+        values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_DATE_ADMISSION, data);
 
-        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_DATE_NASCIMENTO, "" + DateAdmissao.getTimeInMillis());
-        values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_TELEFONE, lblTextTelefone.getText().toString());
+        //DateNasc = Calendar.getInstance();
+        //DateNasc.set(Calendar.DAY_OF_MONTH, lblTextDataNasc.getDayOfMonth());
+        //DateNasc.set(Calendar.MONTH, lblTextDataNasc.getMonth());
+        //DateNasc.set(Calendar.YEAR, lblTextDataNasc.getYear());
 
-        bd.insert(values, GeTaxiModelDB.MotoristaRegisterEntry.TABLE_NAME);
+        data =  lblTextDataNasc.getDayOfMonth() + "/"+ lblTextDataNasc.getMonth() + "/"+ lblTextDataNasc.getYear();
 
-        values = new ContentValues();
 
-        values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ANO, lblTextAno.getText().toString());
-        values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_MARCA, lblTextMarca.getText().toString());
-        values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PLACA, lblTextPlaca.getText().toString());
-        values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PASSAGEIROS, lblTextPassageiros.getText().toString());
-        values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ID_MOTORISTA, lblTextId.getText().toString());
+        values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_DATE_NASCIMENTO, "" + data);
+        values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_TELEFONE, lblTextTelefone.getText().toString());
 
-        bd.insert(values, GeTaxiModelDB.VeiculoRegisterEntry.TABLE_NAME);
+        values2.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ANO, lblTextAno.getText().toString());
+        values2.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_MARCA, lblTextMarca.getText().toString());
+        values2.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PLACA, lblTextPlaca.getText().toString());
+        values2.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PASSAGEIROS, lblTextPassageiros.getText().toString());
+        values2.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ID_MOTORISTA, lblTextId.getText().toString());
+
+        bd.insert(values1, values2);
     }
 }
