@@ -9,12 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
 public class ActConsultaMotorista extends ListActivity implements View.OnClickListener {
-    private TextView lblTitle, lblName, lblCNH, lblCPF, lblDataAdmissao, lblDataNasc, lblTelefone;
-    private EditText txtName;
+    private EditText lblTextBusca, lblTextValor;
     private Button btnPesquisar;
+    private String[] ss;
+    private boolean tab = true;
+    private int numberCol = 0;
 
     private GeTaxiDB db;
 
@@ -25,22 +26,24 @@ public class ActConsultaMotorista extends ListActivity implements View.OnClickLi
 
         db = new GeTaxiDB(ActConsultaMotorista.this);
 
+        lblTextBusca = (EditText) findViewById(R.id.lblTextBusca);
+        lblTextValor = (EditText) findViewById(R.id.lblTextValor);
         btnPesquisar = (Button) findViewById(R.id.btnPesquisar);
 
         btnPesquisar.setOnClickListener(this);
     }
 
     public void onClick(View v) {
-        get();
+        String message = get();
         AlertDialog.Builder dlg = new AlertDialog.Builder(ActConsultaMotorista.this);
-        dlg.setMessage("Consultando Motorista no Sistema...");
+        dlg.setMessage(message);
         dlg.setNeutralButton("OK", null);
         dlg.show();
     }
 
-    public void get()
+    public String get()
     {
-        String[] ss = new String[] {
+        ss = new String[] {
                 GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_ID,
                 GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_NAME,
                 GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CNH,
@@ -51,7 +54,7 @@ public class ActConsultaMotorista extends ListActivity implements View.OnClickLi
                 GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ANO,
                 GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_MARCA,
                 GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PLACA,
-                GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PASSAGEIROS,};
+                GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PASSAGEIROS};
         int[] ii = new int[] {
                 R.id.textIdMotorista,
                 R.id.textNomeMotorista,
@@ -65,19 +68,47 @@ public class ActConsultaMotorista extends ListActivity implements View.OnClickLi
                 R.id.textPlaca,
                 R.id.textPassageiros
         };
+        String retorno = "Ok!";
+        String where = lblTextBusca.getText().toString();
+        String valor = lblTextValor.getText().toString();
+        if(where.trim().length() == 0 || verify(where)) {
+            Cursor mCursor;
+            if(where.trim().length() == 0) {
+                mCursor = db.getAllMotorista("");
+            }
+            else {
+                if(numberCol != 0 && numberCol != 7 && numberCol != 10) {
+                    valor = "'" + valor + "'";
+                }
+                if(tab) where = "motorista." + where;
+                else where = "veiculo." + where;
 
-        Cursor mCursor = db.getAllMotorista();
+                mCursor = db.getAllMotorista(" where " + where + " = " + valor);
+            }
+            ListAdapter adapter = new SimpleCursorAdapter(
+                    this,
+                    R.layout.item_motorista,
+                    mCursor,
+                    ss,
+                    ii,
+                    0
+            );
 
-        ListAdapter adapter = new SimpleCursorAdapter(
-                this,
-                R.layout.item_motorista,
-                mCursor,
-                ss,
-                ii,
-                0
-        );
+            setListAdapter(adapter);
+        }
+        else retorno = "Erro, atributo nao encontrado";
+        return retorno;
+    }
 
-        setListAdapter(adapter);
+    private boolean verify(String col) {
+        for(int i = 0; i < ss.length; i++) {
+            if(ss[i].equals(col.toLowerCase())) {
+                numberCol = i;
+                if(i > 6) tab = false;
+                return true;
+            }
+        }
 
+        return false;
     }
 }

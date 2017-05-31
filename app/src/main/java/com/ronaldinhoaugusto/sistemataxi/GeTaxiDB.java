@@ -20,6 +20,7 @@ public class GeTaxiDB {
             SQLiteDatabase db = geTaxiDBHelper.getWritableDatabase();
             long result = db.insertOrThrow(tabela, null, values);
         }catch (Exception e) {
+            Log.e("Erro:", e.toString());
             return false;
         }
 
@@ -30,10 +31,25 @@ public class GeTaxiDB {
     public boolean insert(ContentValues motorista, ContentValues veiculo) {
         try {
             SQLiteDatabase db = geTaxiDBHelper.getWritableDatabase();
-            db.insertOrThrow(GeTaxiModelDB.MotoristaRegisterEntry.TABLE_NAME, null, motorista);
+            long idMotorista = db.insertOrThrow(GeTaxiModelDB.MotoristaRegisterEntry.TABLE_NAME, null, motorista);
+            veiculo.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ID_MOTORISTA, "" + idMotorista);
             db.insertOrThrow(GeTaxiModelDB.VeiculoRegisterEntry.TABLE_NAME, null, veiculo);
         }catch(Exception e) {
             Log.e("Motorista:", "id errado");
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean insertChamada(ContentValues chamada, ContentValues registro) {
+        try {
+            SQLiteDatabase db = geTaxiDBHelper.getWritableDatabase();
+            long protocolo = db.insertOrThrow(GeTaxiModelDB.ChamadaRegisterEntry.TABLE_NAME, null, chamada);
+            registro.put(GeTaxiModelDB.RegistraRegisterEntry.COLUMN_NAME_ID_CHAMADA, "" + protocolo);
+            db.insertOrThrow(GeTaxiModelDB.RegistraRegisterEntry.TABLE_NAME, null, registro);
+        }catch(Exception e) {
+            Log.e("Registro:", "id errado");
             return false;
         }
 
@@ -46,102 +62,63 @@ public class GeTaxiDB {
         db.close();
     }
 
-    public ContentValues load(String tabela, String nome) {
+    public Cursor getAllMotorista(String where) {
         SQLiteDatabase db = geTaxiDBHelper.getReadableDatabase();
-        ContentValues values = new ContentValues();
-
-        Cursor c = db.query(
-                tabela,
-                null,
-                "nome" + " = ? ",
-                new String[]{nome},
-                null,
-                null,
-                null
-        );
-
-        switch(tabela) {
-            case "motorista":
-                if (c.moveToFirst()) {
-                    values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_ID, c.getInt(0));
-                    values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_NAME, c.getString(1));
-                    values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CNH, c.getString(2));
-                    values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CPF, c.getString(3));
-                    values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_DATE_ADMISSION, c.getLong(4));
-                    values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_DATE_NASCIMENTO, c.getLong(5));
-                    //values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_LATITUDE, c.getDouble(6));
-                    //values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_LONGITUDE, c.getDouble(7));
-                    values.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_TELEFONE, c.getString(8));
-                }
-                break;
-            case "veiculo":
-                if (c.moveToFirst()) {
-                    values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ID, c.getInt(0));
-                    values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ANO, c.getInt(1));
-                    values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_MARCA, c.getString(2));
-                    values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PLACA, c.getString(3));
-                    values.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ID_MOTORISTA, c.getInt(4));
-                }
-                break;
-            case "chamada":
-                if (c.moveToFirst()) {
-                    values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_ID, c.getInt(0));
-                    values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_VALUE, c.getDouble(1));
-                    //values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM_LATITUDE, c.getDouble(3));
-                    //values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM_LONGITUDE, c.getDouble(4));
-                    values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_DATE_ORIGEM, c.getLong(5));
-                    //values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO_LATITUDE, c.getDouble(6));
-                    //values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO_LONGITUDE, c.getDouble(7));
-                    values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_DATE_DESTINO, c.getLong(8));
-                }
-                break;
-            case "atendente":
-                if (c.moveToFirst()) {
-                    values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_ID, c.getInt(0));
-                    values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_NAME, c.getString(1));
-                    values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_SALARIO, c.getDouble(2));
-                    values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_CPF, c.getString(3));
-                    values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_LATITUDE, c.getDouble(4));
-                    values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_LONGITUDE, c.getDouble(5));
-                    values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_TELEFONE, c.getLong(6));
-                }
-                break;
-            case "usuario":
-                if (c.moveToFirst()) {
-                    values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_ID, c.getInt(0));
-                    values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_NAME, c.getString(1));
-                    values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_CPF, c.getString(2));
-                    //values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_LONGITUDE, c.getDouble(3));
-                    //values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_LATITUDE, c.getDouble(4));
-                    values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_TELEFONE, c.getLong(5));
-                }
-                break;
-            default:
-        }
-        db.close();
-        return values;
-    }
-
-    public Cursor getAllMotorista() {
-        SQLiteDatabase db = geTaxiDBHelper.getReadableDatabase();
-        String sql = "SELECT * FROM motorista INNER JOIN veiculo ON motorista._id = veiculo.id_motorista";
+        String sql = "SELECT * FROM motorista INNER JOIN veiculo ON motorista._id = veiculo.id_motorista" + where ;
         Cursor c = db.rawQuery( sql, null);
         //db.close();
         return c;
     }
 
-    public Cursor getAll(String tabela) {
+    public Cursor getAll(String tabela, String where) {
         SQLiteDatabase db = geTaxiDBHelper.getReadableDatabase();
-        Cursor c = db.query(
-                tabela,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null
-        );
+        String sql = "SELECT * FROM " + tabela + where ;
+        Cursor c = db.rawQuery( sql, null);
+
+        //Cursor c = db.query(
+        //        tabela,
+        //        null,
+        //        null,
+        //        null,
+        //        null,
+        //        null,
+        //        null
+        //);
 
         return c;
+    }
+
+    public boolean auntenticarUsuario(String nome) {
+        String tabela = GeTaxiModelDB.UsuarioRegisterEntry.TABLE_NAME;
+        SQLiteDatabase db = geTaxiDBHelper.getReadableDatabase();
+        String sql = "SELECT * FROM " + tabela;
+        Cursor c = db.rawQuery( sql, null);
+
+        if (c.moveToFirst()) {
+            do {
+                String n = c.getString(c.getColumnIndex(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_NAME));
+                if (n.toLowerCase().equals(nome.toLowerCase())) {
+                    return true;
+                }
+            } while (c.moveToNext());
+        }
+            return false;
+    }
+
+    public boolean auntenticarAtendente(String nome) {
+        String tabela = GeTaxiModelDB.AtendenteRegisterEntry.TABLE_NAME;
+        SQLiteDatabase db = geTaxiDBHelper.getReadableDatabase();
+        String sql = "SELECT * FROM " + tabela;
+        Cursor c = db.rawQuery( sql, null);
+
+        if (c.moveToFirst()) {
+            do {
+                String n = c.getString(1);
+                if (n.toLowerCase().equals(nome.toLowerCase())) {
+                    return true;
+                }
+            } while (c.moveToNext());
+        }
+        return false;
     }
 }

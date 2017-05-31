@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.SimpleCursorAdapter;
 
@@ -15,32 +16,36 @@ import android.widget.SimpleCursorAdapter;
 
 public class ActConsultaCliente extends ListActivity implements View.OnClickListener{
     private Button btnPesquisar;
-
+    private EditText lblTextBusca, lblTextValor;
+    private String[] ss;
     private GeTaxiDB db;
+    private int numberCol = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_consulta_atendente);
+        setContentView(R.layout.act_consulta_cliente);
 
         db = new GeTaxiDB(ActConsultaCliente.this);
 
+        lblTextBusca = (EditText) findViewById(R.id.lblTextBusca);
+        lblTextValor = (EditText) findViewById(R.id.lblTextValor);
         btnPesquisar = (Button) findViewById(R.id.btnPesquisar);
 
         btnPesquisar.setOnClickListener(this);
     }
 
     public void onClick(View v) {
-        get();
+        String message = get();
         AlertDialog.Builder dlg = new AlertDialog.Builder(ActConsultaCliente.this);
-        dlg.setMessage("Consultando Cliente no Sistema...");
+        dlg.setMessage(message);
         dlg.setNeutralButton("OK", null);
         dlg.show();
     }
 
-    public void get()
+    public String get()
     {
-        String[] ss = new String[] {
+        ss = new String[] {
                 GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_ID,
                 GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_NAME,
                 GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_CPF,
@@ -59,16 +64,46 @@ public class ActConsultaCliente extends ListActivity implements View.OnClickList
                 R.id.textTelefone
         };
 
-        Cursor mCursor = db.getAll(GeTaxiModelDB.UsuarioRegisterEntry.TABLE_NAME);
+        String retorno = "Ok!";
+        String where = lblTextBusca.getText().toString();
+        String valor = lblTextValor.getText().toString();
+        if(where.trim().length() == 0 || verify(where)) {
 
-        ListAdapter adapter = new SimpleCursorAdapter(
-                this,
-                R.layout.item_cliente,
-                mCursor,
-                ss,
-                ii,
-                0
-        );
-        setListAdapter(adapter);
+            Cursor mCursor;
+
+            if(where.trim().length() == 0) {
+                mCursor = db.getAll(GeTaxiModelDB.UsuarioRegisterEntry.TABLE_NAME, "");
+            }
+            else {
+                where = "usuario." + where;
+                if(numberCol != 0) {
+                    valor = "'" + valor + "'";
+                }
+                mCursor = db.getAll(GeTaxiModelDB.UsuarioRegisterEntry.TABLE_NAME, " where " + where + " = " + valor);
+            }
+
+
+            ListAdapter adapter = new SimpleCursorAdapter(
+                    this,
+                    R.layout.item_cliente,
+                    mCursor,
+                    ss,
+                    ii,
+                    0
+            );
+            setListAdapter(adapter);
+        }
+        else retorno = "Erro, atributo nao encontrado";
+        return retorno;
+    }
+
+    private boolean verify(String col) {
+        for(int i = 0; i < ss.length; i++) {
+            if(ss[i].equals(col.toLowerCase())) {
+                numberCol = i;
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -24,34 +24,9 @@
                 android:layout_height="70dp"
                 android:text="Cadastrar Chamada"
                 android:textAlignment="center"
-                android:textColor="@android:color/holo_orange_light"
+                android:textColor="@color/orange"
                 android:textSize="24sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtProtocolo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:text="Protocolo:"
-                android:textColor="#de000000"
-                android:textSize="16sp"
-                android:visibility="visible" />
-
-            <EditText
-                android:id="@+id/lblTextProtocolo"
-                android:layout_width="fill_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="1dp"
-                android:background="#FFFFFF"
-                android:elevation="2dp"
-                android:ems="10"
-                android:hint="Digite o protocolo!"
-                android:inputType="number"
-                android:padding="4dp"
-                android:textColorHint="#39000000"
-                android:textSize="16sp"
-                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/txtIdMotorista"
@@ -135,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
-                android:text="Passageiro(ID):"
+                android:text="Passageiro:"
                 android:textColor="#de000000"
                 android:textSize="16sp"
                 android:visibility="visible" />
@@ -211,12 +186,9 @@
                 android:id="@+id/btnCadastrarChamada"
                 android:layout_width="fill_parent"
                 android:layout_height="65dp"
-                android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="C A D A S T R A R"
-                android:singleLine="false"
-                android:textAlignment="center" />
+                style="@style/ButtonOrange"
+                android:text="C A D A S T R A R" />
 
         </LinearLayout>
     </ScrollView>

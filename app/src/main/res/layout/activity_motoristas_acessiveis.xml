@@ -4,13 +4,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    tools:context="com.ronaldinhoaugusto.sistemataxi.ActMotoristasAcessiveis">
 
     <TextView
         android:id="@+id/lblTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consultar Corrida"
+        android:text="Solicitar Motorista"
         android:layout_marginBottom="15dp"
         android:textAlignment="center"
         android:textColor="@color/orange"
@@ -21,27 +22,25 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/lblTextBusca"
+        <TextView
+            android:id="@+id/txtIdMotorista"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginRight="4dp"
             android:layout_marginTop="1dp"
             android:layout_marginLeft="4dp"
-            android:background="#FFFFFF"
+            android:textColor="@color/black"
             android:elevation="2dp"
             android:ems="10"
-            android:hint="Atributo"
-            android:inputType="textPersonName"
+            android:text="Motorista(ID):"
             android:maxLength="20"
             android:padding="5dp"
-            android:textColorHint="@color/textGray"
             android:textSize="16sp"
             android:visibility="visible" />
 
         <EditText
-            android:id="@+id/lblTextValor"
+            android:id="@+id/lblTextIdMotorista"
             android:layout_width="155dp"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -53,8 +52,8 @@
             android:background="#FFFFFF"
             android:elevation="2dp"
             android:ems="10"
-            android:hint="Valor"
-            android:inputType="textPersonName"
+            android:hint="ID"
+            android:inputType="numberSigned"
             android:maxLength="20"
             android:padding="5dp"
             android:textColorHint="@color/textGray"
@@ -66,12 +65,12 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/btnPesquisar"
+        android:id="@+id/btnSolicitar"
         android:layout_width="186dp"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Pesquisar"
+        android:text="Solicitar"
         style="@style/ButtonWhite"/>
 
 

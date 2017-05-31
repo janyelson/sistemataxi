@@ -25,7 +25,7 @@ public class ActCadastroAtendente extends AppCompatActivity implements View.OnCl
 
         bd = new GeTaxiDB(ActCadastroAtendente.this);
 
-        lblTextId = (EditText)findViewById(R.id.lblTextId);
+        //lblTextId = (EditText)findViewById(R.id.lblTextId);
         lblTextName = (EditText)findViewById(R.id.lblTextName);
         lblTextSalario = (EditText)findViewById(R.id.lblTextSalario);
         lblTextCPF = (EditText)findViewById(R.id.lblTextCPF);
@@ -47,7 +47,7 @@ public class ActCadastroAtendente extends AppCompatActivity implements View.OnCl
 
     private void register() {
         ContentValues values = new ContentValues();
-        values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_ID, lblTextId.getText().toString());
+        //values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_ID, lblTextId.getText().toString());
         values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_NAME, lblTextName.getText().toString());
         values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_SALARIO, lblTextSalario.getText().toString());
         values.put(GeTaxiModelDB.AtendenteRegisterEntry.COLUMN_NAME_CPF, lblTextCPF.getText().toString());

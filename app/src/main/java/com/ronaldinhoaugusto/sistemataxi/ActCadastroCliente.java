@@ -26,7 +26,7 @@ public class ActCadastroCliente extends AppCompatActivity implements View.OnClic
 
         bd = new GeTaxiDB(ActCadastroCliente.this);
 
-        lblTextId = (EditText)findViewById(R.id.lblTextId);
+        //lblTextId = (EditText)findViewById(R.id.lblTextId);
         lblTextName = (EditText)findViewById(R.id.lblTextName);
         lblTextCPF = (EditText)findViewById(R.id.lblTextCPF);
         lblTextTelefone = (EditText)findViewById(R.id.lblTextTelefone);
@@ -50,7 +50,7 @@ public class ActCadastroCliente extends AppCompatActivity implements View.OnClic
 
     private void register() {
         ContentValues values = new ContentValues();
-        values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_ID, lblTextId.getText().toString());
+        //values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_ID, lblTextId.getText().toString());
         values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_NAME, lblTextName.getText().toString());
         values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_CPF, lblTextCPF.getText().toString());
         values.put(GeTaxiModelDB.UsuarioRegisterEntry.COLUMN_NAME_TELEFONE, lblTextTelefone.getText().toString());

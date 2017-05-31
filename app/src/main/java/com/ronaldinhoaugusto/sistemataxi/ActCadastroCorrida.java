@@ -26,7 +26,7 @@ public class ActCadastroCorrida extends AppCompatActivity implements View.OnClic
 
         bd = new GeTaxiDB(ActCadastroCorrida.this);
 
-        lblTextProtocolo = (EditText)findViewById(R.id.lblTextProtocolo);
+        //lblTextProtocolo = (EditText)findViewById(R.id.lblTextProtocolo);
         lblTextIdMotorista = (EditText)findViewById(R.id.lblTextIdMotorista);
         lblTextIdAtendente = (EditText)findViewById(R.id.lblTextIdAtendente);
         lblTextValor = (EditText)findViewById(R.id.lblTextValor);
@@ -50,7 +50,7 @@ public class ActCadastroCorrida extends AppCompatActivity implements View.OnClic
 
     private void register() {
         ContentValues values = new ContentValues();
-        values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_ID, lblTextProtocolo.getText().toString());
+        //values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_ID, lblTextProtocolo.getText().toString());
         values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_VALUE, lblTextValor.getText().toString());
         values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM, lblTextLocalOrigem.getText().toString());
         values.put(GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_DESTINO, lblTextLocalDestino.getText().toString());

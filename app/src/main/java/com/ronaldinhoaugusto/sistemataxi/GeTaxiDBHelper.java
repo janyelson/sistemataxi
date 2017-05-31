@@ -51,20 +51,18 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_ENTRIES_MOTORISTA =
             "CREATE TABLE " + MotoristaRegisterEntry.TABLE_NAME + " (" +
-                    MotoristaRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + COMMA_SEP +
+                    MotoristaRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + AUTOINCREMENT + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_NAME + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_CNH + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_CPF + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_DATE_ADMISSION + TEXT_TYPE + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_DATE_NASCIMENTO + TEXT_TYPE + COMMA_SEP +
-                    MotoristaRegisterEntry.COLUMN_NAME_LATITUDE + REAL_TYPE + COMMA_SEP +
-                    MotoristaRegisterEntry.COLUMN_NAME_LONGITUDE + REAL_TYPE + COMMA_SEP +
                     MotoristaRegisterEntry.COLUMN_NAME_TELEFONE + TEXT_TYPE +
                     " )";
 
     private static final String SQL_CREATE_ENTRIES_VEICULO =
             "CREATE TABLE " + VeiculoRegisterEntry.TABLE_NAME + " (" +
-                    VeiculoRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + COMMA_SEP +
+                    VeiculoRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + AUTOINCREMENT + COMMA_SEP +
                     VeiculoRegisterEntry.COLUMN_NAME_ANO + INT_TYPE + NOT_NULL + COMMA_SEP +
                     VeiculoRegisterEntry.COLUMN_NAME_MARCA + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     VeiculoRegisterEntry.COLUMN_NAME_PLACA + TEXT_TYPE + NOT_NULL + COMMA_SEP +
@@ -76,7 +74,7 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_ENTRIES_CHAMADA =
             "CREATE TABLE " + ChamadaRegisterEntry.TABLE_NAME + " (" +
-                    ChamadaRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + COMMA_SEP +
+                    ChamadaRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + AUTOINCREMENT + COMMA_SEP +
                     ChamadaRegisterEntry.COLUMN_NAME_VALUE + REAL_TYPE + NOT_NULL + COMMA_SEP +
                     ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM + TEXT_TYPE + COMMA_SEP +
                     ChamadaRegisterEntry.COLUMN_NAME_DATE_ORIGEM + INT_TYPE + COMMA_SEP +
@@ -86,18 +84,16 @@ public class GeTaxiDBHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_ENTRIES_ATENDENTE =
             "CREATE TABLE " + AtendenteRegisterEntry.TABLE_NAME + " (" +
-                    AtendenteRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + COMMA_SEP +
+                    AtendenteRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + AUTOINCREMENT + COMMA_SEP +
                     AtendenteRegisterEntry.COLUMN_NAME_NAME + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     AtendenteRegisterEntry.COLUMN_NAME_SALARIO + TEXT_TYPE + COMMA_SEP +
                     AtendenteRegisterEntry.COLUMN_NAME_CPF + TEXT_TYPE + NOT_NULL + COMMA_SEP +
-                    AtendenteRegisterEntry.COLUMN_NAME_LATITUDE + REAL_TYPE + COMMA_SEP +
-                    AtendenteRegisterEntry.COLUMN_NAME_LONGITUDE + REAL_TYPE + COMMA_SEP +
                     AtendenteRegisterEntry.COLUMN_NAME_TELEFONE + TEXT_TYPE +
                     " )";
 
     private static final String SQL_CREATE_ENTRIES_USUARIO =
             "CREATE TABLE " + UsuarioRegisterEntry.TABLE_NAME + " (" +
-                    UsuarioRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + COMMA_SEP +
+                    UsuarioRegisterEntry.COLUMN_NAME_ID + INT_TYPE + PRYMARY_KEY + AUTOINCREMENT + COMMA_SEP +
                     UsuarioRegisterEntry.COLUMN_NAME_NAME + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     UsuarioRegisterEntry.COLUMN_NAME_CPF + TEXT_TYPE + NOT_NULL + COMMA_SEP +
                     UsuarioRegisterEntry.COLUMN_NAME_RUA + TEXT_TYPE + COMMA_SEP +

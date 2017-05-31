@@ -10,34 +10,83 @@
         android:id="@+id/lblTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.17"
-        android:text="Consultar Motorista"
+        android:text="Consultar Atendente"
         android:layout_marginBottom="15dp"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_orange_light"
+        android:textColor="@color/orange"
         android:textSize="24sp"
         android:textStyle="bold" />
 
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/lblTextBusca"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginLeft="4dp"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:ems="10"
+            android:hint="Atributo"
+            android:inputType="textPersonName"
+            android:maxLength="20"
+            android:padding="5dp"
+            android:textColorHint="@color/textGray"
+            android:textSize="16sp"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/lblTextValor"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_toEndOf="@+id/lblTextBusca"
+            android:layout_toRightOf="@+id/lblTextBusca"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:ems="10"
+            android:hint="Valor"
+            android:inputType="textPersonName"
+            android:maxLength="20"
+            android:padding="5dp"
+            android:textColorHint="@color/textGray"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:textSize="16sp"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
     <Button
         android:id="@+id/btnPesquisar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="186dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="Pesquisar"
-        android:layout_below="@+id/txtName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="2dp" />
+        style="@style/ButtonWhite"/>
 
     <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="50dp">
-        <ListView
+        android:layout_height="wrap_content"
+        android:paddingBottom="0dp">
+
+        <com.ronaldinhoaugusto.sistemataxi.MyListView
             android:id="@android:id/list"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-        </ListView>
+            android:layout_height="wrap_content"></com.ronaldinhoaugusto.sistemataxi.MyListView>
+    </LinearLayout>
     </ScrollView>
 
 </LinearLayout>

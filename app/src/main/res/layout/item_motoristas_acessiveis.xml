@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_motoristas_acessiveis"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView android:id="@+id/textMotorista"
+        android:textSize="15sp"
+        android:layout_marginTop="15dp"
+        android:text="Motorista"
+        android:layout_width="wrap_content"
+        android:textColor="@color/orange"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtId"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Motorista(ID):"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/purple"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textIdMotorista"
+        android:textSize="10sp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtNome"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Nome:"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/purple"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textNomeMotorista"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtTelefone"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Telefone:"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/purple"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textTelefone"
+        android:textSize="10sp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textVeiculo"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:text="Veiculo"
+        android:layout_gravity="center"
+        android:textColor="@color/orange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtAno"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Ano:"
+        android:layout_gravity="center"
+        android:textColor="@color/purple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textAno"
+        android:textSize="10sp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtMarca"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Marca:"
+        android:layout_gravity="center"
+        android:textColor="@color/purple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textMarca"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtPlaca"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Placa:"
+        android:layout_gravity="center"
+        android:textColor="@color/purple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textPlaca"
+        android:textSize="10sp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/txtPassageiros"
+        android:textSize="10sp"
+        android:layout_marginTop="2dp"
+        android:text="Nº de Passageiros:"
+        android:layout_gravity="center"
+        android:textColor="@color/purple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView android:id="@+id/textPassageiros"
+        android:textSize="10sp"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

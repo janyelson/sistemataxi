@@ -28,7 +28,7 @@ public class ActCadastroMotorista extends AppCompatActivity implements View.OnCl
 
         bd = new GeTaxiDB(ActCadastroMotorista.this);
 
-        lblTextId = (EditText)findViewById(R.id.lblTextId);
+        //lblTextId = (EditText)findViewById(R.id.lblTextId);
         lblTextName = (EditText)findViewById(R.id.lblTextName);
         lblTextCNH = (EditText)findViewById(R.id.lblTextCNH);
         lblTextCPF = (EditText)findViewById(R.id.lblTextCPF);
@@ -59,7 +59,7 @@ public class ActCadastroMotorista extends AppCompatActivity implements View.OnCl
         ContentValues values1 = new ContentValues();
         ContentValues values2 = new ContentValues();
 
-        values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_ID, lblTextId.getText().toString());
+        //values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_ID, lblTextId.getText().toString());
         values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_NAME, lblTextName.getText().toString());
         values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CNH, lblTextCNH.getText().toString());
         values1.put(GeTaxiModelDB.MotoristaRegisterEntry.COLUMN_NAME_CPF, lblTextCPF.getText().toString());
@@ -87,7 +87,7 @@ public class ActCadastroMotorista extends AppCompatActivity implements View.OnCl
         values2.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_MARCA, lblTextMarca.getText().toString());
         values2.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PLACA, lblTextPlaca.getText().toString());
         values2.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_PASSAGEIROS, lblTextPassageiros.getText().toString());
-        values2.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ID_MOTORISTA, lblTextId.getText().toString());
+        //values2.put(GeTaxiModelDB.VeiculoRegisterEntry.COLUMN_NAME_ID_MOTORISTA, lblTextId.getText().toString());
 
         bd.insert(values1, values2);
     }

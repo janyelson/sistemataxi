@@ -22,7 +22,6 @@ public class GeTaxiModelDB {
         public static final String COLUMN_NAME_LATITUDE = "latitude";
         public static final String COLUMN_NAME_LONGITUDE = "longitude";
         public static final String COLUMN_NAME_TELEFONE = "telefone";
-
     }
 
     public static abstract class VeiculoRegisterEntry implements BaseColumns {

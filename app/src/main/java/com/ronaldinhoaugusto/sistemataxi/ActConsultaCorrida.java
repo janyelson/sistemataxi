@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.SimpleCursorAdapter;
 
@@ -15,8 +16,10 @@ import android.widget.SimpleCursorAdapter;
 
 public class ActConsultaCorrida extends ListActivity implements View.OnClickListener{
     private Button btnPesquisar;
-
+    private EditText lblTextBusca, lblTextValor;
+    private String[] ss;
     private GeTaxiDB db;
+    private int numberCol = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,22 +28,24 @@ public class ActConsultaCorrida extends ListActivity implements View.OnClickList
 
         db = new GeTaxiDB(ActConsultaCorrida.this);
 
+        lblTextBusca = (EditText) findViewById(R.id.lblTextBusca);
+        lblTextValor = (EditText) findViewById(R.id.lblTextValor);
         btnPesquisar = (Button) findViewById(R.id.btnPesquisar);
 
         btnPesquisar.setOnClickListener(this);
     }
 
     public void onClick(View v) {
-        get();
+        String message = get();
         AlertDialog.Builder dlg = new AlertDialog.Builder(ActConsultaCorrida.this);
-        dlg.setMessage("Consultando Corrida no Sistema...");
+        dlg.setMessage(message);
         dlg.setNeutralButton("OK", null);
         dlg.show();
     }
 
-    public void get()
+    public String get()
     {
-        String[] ss = new String[] {
+        ss = new String[] {
                 GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_ID,
                 GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_VALUE,
                 GeTaxiModelDB.ChamadaRegisterEntry.COLUMN_NAME_LOCAL_ORIGEM,
@@ -52,16 +57,45 @@ public class ActConsultaCorrida extends ListActivity implements View.OnClickList
                 R.id.textDestino
         };
 
-        Cursor mCursor = db.getAll(GeTaxiModelDB.ChamadaRegisterEntry.TABLE_NAME);
+        String retorno = "Ok!";
+        String where = lblTextBusca.getText().toString();
+        String valor = lblTextValor.getText().toString();
+        if (where.trim().length() == 0 || verify(where)) {
 
-        ListAdapter adapter = new SimpleCursorAdapter(
-                this,
-                R.layout.item_corrida,
-                mCursor,
-                ss,
-                ii,
-                0
-        );
-        setListAdapter(adapter);
+            Cursor mCursor;
+
+            if(where.trim().length() == 0) {
+                mCursor = db.getAll(GeTaxiModelDB.ChamadaRegisterEntry.TABLE_NAME, "");
+            }
+            else {
+                if(numberCol != 0 && numberCol != 1) {
+                    valor = "'" + valor + "'";
+                }
+                where = "chamada." + where;
+                mCursor = db.getAll(GeTaxiModelDB.ChamadaRegisterEntry.TABLE_NAME, " where " + where + " = " + valor);
+            }
+
+            ListAdapter adapter = new SimpleCursorAdapter(
+                    this,
+                    R.layout.item_corrida,
+                    mCursor,
+                    ss,
+                    ii,
+                    0
+            );
+            setListAdapter(adapter);
+        }
+        else retorno = "Erro, atributo nao encontrado";
+        return retorno;
+    }
+
+    private boolean verify(String col) {
+        for(int i = 0; i < ss.length; i++) {
+            if(ss[i].equals(col.toLowerCase())) {
+                numberCol = i;
+                return true;
+            }
+        }
+        return false;
     }
 }
